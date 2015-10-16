@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-
+#import "TableViewController.h"
 @interface AppDelegate ()
 
 @end
@@ -23,7 +23,7 @@
     UIApplicationShortcutIcon *icon1 = [UIApplicationShortcutIcon iconWithType:UIApplicationShortcutIconTypeCompose];
     UIApplicationShortcutIcon *icon2 = [UIApplicationShortcutIcon iconWithType:UIApplicationShortcutIconTypeLocation];
     UIApplicationShortcutIcon *icon3 = [UIApplicationShortcutIcon iconWithType:UIApplicationShortcutIconTypePause];
-    UIApplicationShortcutIcon *icon4 = [UIApplicationShortcutIcon iconWithTemplateImageName:@"favicon.png"];
+    UIApplicationShortcutIcon *icon4 = [UIApplicationShortcutIcon iconWithTemplateImageName:@"favicon"];
     
     ///setup items
     UIMutableApplicationShortcutItem *item1 = [[UIMutableApplicationShortcutItem alloc] initWithType:@"first" localizedTitle:@"first item title" localizedSubtitle:@"first item detail title" icon:icon1 userInfo:nil];
@@ -42,6 +42,11 @@
     }else{
         NSLog(@"normal launch");
     }
+    
+    
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    self.window.rootViewController = [[TableViewController alloc] init];
+    [self.window makeKeyAndVisible];
     
     return YES;
 }
